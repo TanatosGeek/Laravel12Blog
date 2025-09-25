@@ -13,6 +13,8 @@ Route::get('/', function () {
 });
 
 Route::get('/prueba', function () {
+
     $post = Post::find(1);
-    return $post->tags;
+
+    return $post->image;
 });

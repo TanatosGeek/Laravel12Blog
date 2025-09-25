@@ -32,7 +32,13 @@ class DatabaseSeeder extends Seeder
             });
         });
         Category::factory(100)->create();
-        Post::factory(100)->create();
+        Post::factory(100)->create()->each(function($post){
+
+            $post->image()->create([
+                'url' => 'url_image.jpg',
+            ]);
+
+        });
 
         Course::factory(10)->create()->each(function($course){
             Section::factory(4)->create([
