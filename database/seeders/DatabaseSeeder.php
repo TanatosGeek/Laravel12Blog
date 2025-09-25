@@ -22,36 +22,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory(100)->create()->each(function ($user) {
-            Profile::factory(1)->create([
-                'user_id' => $user->id,
-            ])->each(function ($profile){
-                Address::factory(1)->create([
-                    'profile_id' => $profile->id,
-                ]);
-            });
-        });
-        Category::factory(100)->create();
-        Post::factory(100)->create()->each(function($post){
 
-            $post->image()->create([
-                'url' => 'url_image.jpg',
-            ]);
+        
+        $this->call(UserSeeder::class);
 
-        });
+        $this->call(CategorySeeder::class);
 
-        Course::factory(10)->create()->each(function($course){
-            Section::factory(4)->create([
-                'course_id' => $course->id,
-            ])->each(function($section){
-                    Lesson::factory(5)->create([
-                        'section_id' => $section->id,
-                    ]);
-                }
-            );
-        });
+        $this->call(PostSeeder::class);
 
-        Tag::factory(10)->create();
+        $this->call(CourseSeeder::class);
+
+        $this->call(TagSeeder::class);
 
 
     }

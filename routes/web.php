@@ -16,5 +16,5 @@ Route::get('/prueba', function () {
 
     $post = Post::find(1);
 
-    return $post->image;
+    return $post->tags;
 });

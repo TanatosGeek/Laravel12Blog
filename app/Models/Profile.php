@@ -9,7 +9,6 @@ use Illuminate\Testing\Fluent\Concerns\Has;
 class Profile extends Model
 {
     use HasFactory;
-
     protected $fillable = [
         'job',
         'phone',

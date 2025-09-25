@@ -24,4 +24,9 @@ class Course extends Model
     {
         return $this->hasManyThrough(Lesson::class, Section::class);
     }
+
+    public function tags()
+    {
+        return $this->morphToMany(Tag::class, 'taggable');
+    }
 }
